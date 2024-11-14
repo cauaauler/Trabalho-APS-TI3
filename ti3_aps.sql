@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2024 at 10:31 PM
+-- Generation Time: Nov 14, 2024 at 02:14 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,6 +47,16 @@ CREATE TABLE `tipo_residuo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
+-- Dumping data for table `tipo_residuo`
+--
+
+INSERT INTO `tipo_residuo` (`id`, `tipo`) VALUES
+(1, 'Metal'),
+(2, 'Papel'),
+(3, 'Plástico'),
+(4, 'Orgânico');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -77,7 +87,7 @@ ALTER TABLE `residuo`
 -- AUTO_INCREMENT for table `tipo_residuo`
 --
 ALTER TABLE `tipo_residuo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
