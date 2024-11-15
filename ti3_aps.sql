@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2024 at 02:14 AM
+-- Generation Time: Nov 15, 2024 at 02:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `residuo` (
   `nome` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
   `imagem` varchar(255) NOT NULL,
-  `tipo` int(11) NOT NULL
+  `id_tipo_residuo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ INSERT INTO `tipo_residuo` (`id`, `tipo`) VALUES
 --
 ALTER TABLE `residuo`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `tipo` (`tipo`);
+  ADD KEY `tipo` (`id_tipo_residuo`);
 
 --
 -- Indexes for table `tipo_residuo`
@@ -97,7 +97,7 @@ ALTER TABLE `tipo_residuo`
 -- Constraints for table `residuo`
 --
 ALTER TABLE `residuo`
-  ADD CONSTRAINT `residuo_ibfk_1` FOREIGN KEY (`tipo`) REFERENCES `tipo_residuo` (`id`);
+  ADD CONSTRAINT `residuo_ibfk_1` FOREIGN KEY (`id_tipo_residuo`) REFERENCES `tipo_residuo` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
