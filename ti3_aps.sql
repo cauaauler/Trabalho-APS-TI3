@@ -31,7 +31,7 @@ CREATE TABLE `residuo` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
-  `foto` varchar(255) NOT NULL,
+  `imagem` varchar(255) NOT NULL,
   `tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
