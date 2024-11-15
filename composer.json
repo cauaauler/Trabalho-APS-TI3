@@ -2,7 +2,7 @@
     "name": "grupo2/trabalho-aps-ti3",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/classes/"
         }
     },
     "require": {}
