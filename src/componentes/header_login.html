@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    header{
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #45a049;
+    border: 2px solid black;
+}
+#divLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2dvh ;
+}
+#divLabel{
+    padding-left: 2dvh;
+}
+#LogoIfrs{
+    color: black;
+    font-size: larger;
+}
+#divUser{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+#nameUser{
+    font-size: larger;
+}
+#DivBtnSair{
+    padding-right: 3dvh;
+}
+#imgUser{
+    padding: 1dvh;
+}
+</style>
+<body>
+    <header>
+        <div id="divLogo">
+            <a href="">
+                <img id="imgLogo" src="../../img/LogoReciclaIF3.png" alt="">
+            </a>
+                <div id="divLabel">
+                    <label id="LogoIfrs"> <b>INSTITUTO FEDERAL <br> DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA <br> Rio Grande do Sul</b></label>
+                </div>
+        </div>
+        <div id="divUser">
+            <div id="DivBtnSair">
+                <button id="BtnLeave">Sair</button>
+            </div>
+            <div id="User">
+                <label id="nameUser" for=""><b>Olá, administrador </b></label>
+            </div>
+            <img id="imgUser" src="../../img/avatar.png" alt="">
+        </div>
+    </header>
+</body>
+</html>
