@@ -18,6 +18,21 @@ class TipoResiduo {
         return $this->tipo;
     }
 
+    public static function find($id): Object {
+        $conexao = new MySQL();
+
+        $sql = "SELECT * FROM tipo_residuo WHERE id = ?";
+        $type_param = "i";
+        $param = [$id];
+
+        $resultados = $conexao->consulta($sql, $type_param, $param);
+
+        $tipoResiduo = new TipoResiduo($resultados[0]['tipo']);
+        $tipoResiduo->setId($resultados[0]['id']);
+
+        return $tipoResiduo;
+    }
+
     public static function findAll(): array {
         $conexao = new MySQL();
 
