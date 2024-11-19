@@ -54,7 +54,7 @@ class Residuo implements ActiveRecord{
     public static function findAll(): array {
         $conexao = new MySQL();
 
-        $sql = "SELECT * FROM residuo WHERE visivel = true";
+        $sql = "SELECT * FROM residuo WHERE ativo = true";
 
         $resultados = $conexao->consulta($sql);
 
