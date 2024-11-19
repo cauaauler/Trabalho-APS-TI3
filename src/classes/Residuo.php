@@ -30,7 +30,7 @@ class Residuo implements ActiveRecord{
         return $this->imagem;
     }
 
-    public function getIdTipoRe(): int {
+    public function getIdTipoResiduo(): int {
         return $this->id_tipo_residuo;
     }
 
@@ -49,6 +49,25 @@ class Residuo implements ActiveRecord{
         }
 
         return $conexao->executa($sql, $type_param, $param);
+    }
+
+    public static function findAll(): array {
+        $conexao = new MySQL();
+
+        $sql = "SELECT * FROM residuo WHERE visivel = true";
+
+        $resultados = $conexao->consulta($sql);
+
+        $tiposResiduos = array();
+
+        foreach ($resultados as $resultado) {
+            $tipoResiduo = new Residuo($resultado['nome'], $resultado['descricao'], $resultado['imagem'], $resultado['id_tipo_residuo']);
+            $tipoResiduo->setId($resultado['id']);
+
+            $tiposResiduos[] = $tipoResiduo;
+        }
+
+        return $tiposResiduos;
     }
 }
 ?>

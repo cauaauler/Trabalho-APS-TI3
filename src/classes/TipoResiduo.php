@@ -18,7 +18,7 @@ class TipoResiduo {
         return $this->tipo;
     }
 
-    static function findAll(): array {
+    public static function findAll(): array {
         $conexao = new MySQL();
 
         $sql = "SELECT * FROM tipo_residuo";
