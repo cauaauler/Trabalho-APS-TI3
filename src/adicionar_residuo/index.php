@@ -10,6 +10,8 @@ if(isset($_POST['submit'])) {
         if(move_uploaded_file($_FILES['imagem']['tmp_name'], $destinoArquivo)) {
             $residuo = new Residuo($_POST['nome'], $_POST['descricao'], $nomeImagem, $_POST['id_tipo_residuo']);
             $residuo->save();
+
+            $sucesso = true;
         } else {
             $erro = true;
             die;
@@ -21,6 +23,8 @@ if(isset($_POST['submit'])) {
 
 if(isset($erro)) {
     header("Location: index.php?erro");
+} else if(isset($sucesso)) {
+    header("Location: index.php?sucesso");
 }
 
 $tiposResiduos = TipoResiduo::findAll();
@@ -89,7 +93,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (urlParams.has('erro')) {
         alert("Ocorreu um erro ao cadastrar o residuo");
+    } else if (urlParams.has('sucesso')) {
+        alert("Residuo cadastrado com sucesso");
     }
+
+    const url = new URL(window.location.href);
+    url.search = "";
+    window.history.replaceState({}, document.title, url.toString());
 })
 </script>
 </html>

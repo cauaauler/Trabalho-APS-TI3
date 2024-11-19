@@ -1,17 +1,16 @@
 document.getElementById('imgResiduo').addEventListener('change', function(event) {
-    const file = event.target.files[0]; // Obtém o arquivo selecionado
+    const file = event.target.files[0];
     const preview = document.getElementById('preview');
     
     if (file) {
         const reader = new FileReader();
         
-        // Quando o arquivo for carregado, definimos o src da imagem de preview
         reader.onload = function(e) {
             preview.src = e.target.result;
-            preview.style.display = 'block'; // Torna a imagem visível
+            preview.style.display = 'block';
         };
         
-        reader.readAsDataURL(file); // Lê o arquivo como URL para exibição
+        reader.readAsDataURL(file);
     } else {
         preview.src = '';
         preview.style.display = 'none';
