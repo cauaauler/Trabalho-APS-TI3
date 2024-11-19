@@ -56,7 +56,7 @@ $tiposResiduos = TipoResiduo::findAll();
                     <input type="text" name="nome" id="nomeResiduo" required>
                 </div>
                 <div id="divTipoResiduo">
-                    <label for="selectTipoResiduo">Tipo de Lixo:</label>
+                    <label for="selectTipoResiduo">Tipo de Resíduo:</label>
                     <select name="id_tipo_residuo" id="selectTipoLixo" required>
                         <?php
                             foreach($tiposResiduos as $tipoResiduo) {
