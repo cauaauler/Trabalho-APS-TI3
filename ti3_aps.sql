@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2024 at 02:50 PM
+-- Generation Time: Nov 19, 2024 at 09:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,7 +32,8 @@ CREATE TABLE `residuo` (
   `nome` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
   `imagem` varchar(255) NOT NULL,
-  `id_tipo_residuo` int(11) NOT NULL
+  `id_tipo_residuo` int(11) NOT NULL,
+  `visivel` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
