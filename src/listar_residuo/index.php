@@ -15,8 +15,9 @@ include_once __DIR__ . "/../../vendor/autoload.php";
             $tipos_residuo = TipoResiduo::findAll();
 
             foreach($residuos as $residuo) {
-                echo "<li>{$residuo->getNome()} - {$residuo->getDescricao()} - 
-                {$tipos_residuo[$residuo->getIdTipoResiduo()-1]->getTipo()}</li>";
+                echo "<li>
+                <img src='../../uploads/{$residuo->getImagem()}.jpg'/>
+                {$residuo->getNome()} - {$tipos_residuo[$residuo->getIdTipoResiduo()-1]->getTipo()}</li>";
             }
         ?>
     </ol>
