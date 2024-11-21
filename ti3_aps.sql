@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `residuo`
 --
 
+CREATE OR REPLACE DATABASE ti3_aps;
+
 CREATE TABLE `residuo` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
