@@ -41,9 +41,25 @@ $tiposResiduos = TipoResiduo::findAll();
     <title>Cadastro de Resíduos</title>
 </head>
 <body>
-    <?php 
-        include_once "../componentes/header_login.html";
-    ?>
+<header>
+        <div id="divLogo">
+            <a href="">
+                <img id="imgLogo" src="../../img/LogoReciclaIF3.png" alt="">
+            </a>
+                <div id="divLabel">
+                    <label id="LogoIfrs"> <b>INSTITUTO FEDERAL <br> DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA <br> Rio Grande do Sul</b></label>
+                </div>
+        </div>
+        <div id="divUser">
+            <div id="DivBtnSair">
+                <button id="BtnLeave">Sair</button>
+            </div>
+            <div id="User">
+                <label id="nameUser" for=""><b>Olá, administrador </b></label>
+            </div>
+            <img id="imgUser" src="../../img/avatar.png" alt="">
+        </div>
+    </header>
     <main>
         <form action="index.php" method="post" enctype="multipart/form-data">
             <div id="divImagemResiduo">
@@ -61,7 +77,7 @@ $tiposResiduos = TipoResiduo::findAll();
                 </div>
                 <div id="divTipoResiduo">
                     <label for="selectTipoResiduo">Tipo de Resíduo:</label>
-                    <select name="id_tipo_residuo" id="selectTipoLixo" required>
+                    <select name="id_tipo_residuo" id="selectTipoResiduo" required>
                         <?php
                             foreach($tiposResiduos as $tipoResiduo) {
                                 echo "<option value=" . $tipoResiduo->getId() . ">" . $tipoResiduo->getTipo() . "</option>";

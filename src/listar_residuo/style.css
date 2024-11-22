@@ -10,6 +10,22 @@ body{
     background-color: greenyellow;
     font-family: 'Comic Neue', sans-serif ;
 }
+#divBtnBack{
+    height: 10dvh;
+    display: flex;
+    align-items: center;
+}
+#btnback{
+    width: 10dvh;
+    height: 5dvh;
+    font-size: 1rem;
+    background-color: transparent;
+    background-color: red;
+    border-radius: 1dvh;
+    color: white;
+    cursor: pointer;
+    margin-left: 4dvh;
+}
 
 /* Header */
 header{
@@ -65,7 +81,7 @@ header{
 /* Main */
 main{
     display: grid;
-    min-height: 80dvh;
+    min-height: 70dvh;
     justify-content: center;
     grid-template-columns: repeat(3, 60dvh);
 }
@@ -99,6 +115,11 @@ main{
     flex-direction: column;
     justify-content: center;
 }
+#divNotResiduos{
+    height: 80dvh;
+    display: grid;
+    place-items: center;
+}
 #divImgResiduo{
     display: flex;
     justify-content: center;
@@ -117,12 +138,12 @@ main{
 }
 #lblnomeResiduo, #lbltipoResiduo, #lblDescricaoResiduo {
     font-family: 'Comic Neue', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: white;
 }
 #resNome,#resTipo,#resDescricao{
     padding-left: 0.5dvh;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-family: 'Comic Neue', sans-serif;
     color: rgb(255, 255, 255);
 }
@@ -142,6 +163,18 @@ main{
 }
 #editBtn{
     background-color: rgb(237, 248, 155);
+}
+.Metal{
+    background-color: #989800;
+}
+.Papel{
+    background-color: #3737ff;
+}
+.Plástico{
+    background-color:#e14040;
+}
+.Orgânico{
+    background-color: #6f3828;
 }
 
 /* Footer */

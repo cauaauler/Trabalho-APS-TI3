@@ -17,16 +17,17 @@ $residuos = Residuo::findAll();
         include_once __DIR__ . "/../componentes/header_login.html";
     ?>
     <?php
+        echo "<div id = 'divBtnBack'><a> <button id= 'btnback'>↩ Voltar</button> </a></div>";
         if(count($residuos) == 0) {
-            echo "<h1>Lista de resíduos vazia</h1>";
+            echo "<div id = 'divNotResiduos'><h1>Lista de resíduos vazia</h1></div>";
         } else {
             $tipos_residuo = TipoResiduo::findAll();
             echo "<main>";
 
             foreach($residuos as $residuo) {
-                echo "<div class='container'>
+                echo "<div class='container {$tipos_residuo[$residuo->getIdTipoResiduo()-1]->getTipo()}'>
                         <div id='divImgResiduo'>
-                            <img id='imgResiduo' src='../../uploads/' . {$residuo->getImagem()} . '.jpg'>
+                            <img id='imgResiduo' src='../../uploads/{$residuo->getImagem()}.jpg'>
                         </div>
                         <div class='conteudo'>
                             <div class='classBtn'>

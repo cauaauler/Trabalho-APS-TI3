@@ -50,6 +50,43 @@ h1{
     font-family: 'Comic Neue', sans-serif ;
     margin-bottom: 5dvh;
 }
+header{
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #45a049;
+    border: 2px solid black;
+}
+#divLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2dvh ;
+}
+#divLabel{
+    padding-left: 2dvh;
+}
+#LogoIfrs{
+    color: black;
+    font-size: larger;
+}
+#divUser{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+#nameUser{
+    font-size: larger;
+}
+#DivBtnSair{
+    padding-right: 3dvh;
+}
+#imgUser{
+    padding: 1dvh;
+}
 label{
     font-size: 3em;
     font-family: 'Comic Neue', sans-serif ;
@@ -88,13 +125,13 @@ label{
     font-family: 'Comic Neue', sans-serif;
     font-size: larger;
 }
-#selectTipoLixo{
+#selectTipoResiduo{
     width: 34dvh;
     height: 6dvh;
     border-radius: 1dvh;
     margin-left: 2dvh;
-    background-color: #45a049;
-    color: white;
+    background-color: #989800;
+    color: rgb(255, 255, 255);
     padding-left: 1dvh;
     border: 3px solid black;
     font-family: 'Comic Neue', sans-serif;
@@ -119,10 +156,11 @@ option[value = "4"]{
     color: black;
 }
 #descricaoResiduo{
-    width: 40dvh;
-    height: 12dvh;
+    width: 46dvh;
+    height: 20dvh;
     border-radius: 1dvh;
     margin-left: 2dvh;
+    padding-top: 1dvh;
     background-color: #45a049;
     color: white;
     padding-left: 1dvh;
