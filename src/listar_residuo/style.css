@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    text-decoration: none;
 }
 body{
     width: 100%;
@@ -94,7 +95,6 @@ main{
     border-radius: 2dvh 4dvh;
     height: 30dvh;
     margin: 4dvh 2dvh;
-
 }
 .conteudo{
     width: 27dvh;
@@ -102,15 +102,19 @@ main{
     margin-top: 1rem;
 }
 .classBtn{
+    height: 0;
     display: flex;
     flex-direction: row;
     justify-content: end;
     align-content: start;
     align-items: center;
     margin-right: 2dvh;
+    position: relative;
+    top: 3rem;
+    right: 1.5rem;
 }
 .divConteudo {
-    height: 70%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;

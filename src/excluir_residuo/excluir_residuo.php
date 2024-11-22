@@ -16,6 +16,7 @@ if(isset($_GET['id'])) {
 if(isset($erro)) {
     header('Location: ../index.php?erro');
 } else {
-    header('Location: ../index.php?sucesso');
+    session_start();
+    header("Location: ../{$_SESSION['pagina']}/");
 }
 ?>
