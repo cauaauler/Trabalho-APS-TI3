@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100dvh;
+    background-color: greenyellow;
+    font-family: 'Comic Neue', sans-serif ;
+}
+.Metal{
+    background-color: #989800;
+}
+.Papel{
+    background-color: #3737ff;
+}
+.Plástico{
+    background-color:#e14040;
+}
+.Orgânico{
+    background-color: #6f3828;
+}
+/*Header*/
+header{
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #45a049;
+    border: 2px solid black;
+}
+#divLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2dvh ;
+}
+#divLabel{
+    padding-left: 2dvh;
+}
+#LogoIfrs{
+    color: black;
+    font-size: larger;
+}
+#divUser{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+#nameUser{
+    font-size: larger;
+}
+#DivBtnSair{
+    padding-right: 3dvh;
+}
+#imgUser{
+    padding: 1dvh;
+}
+#BtnLeave{
+    width: 10dvh;
+    height: 3dvh;
+    background-color: red;
+    color: white;
+    border-radius: 1dvh;
+    cursor: pointer;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#divBtnBack{
+    height: 10dvh;
+    display: flex;
+    align-items: center;
+}
+#btnback{
+    width: 10dvh;
+    height: 5dvh;
+    font-size: 1rem;
+    background-color: transparent;
+    background-color: red;
+    border-radius: 1dvh;
+    color: white;
+    cursor: pointer;
+    margin-left: 4dvh;
+}
+/*main*/
+main{
+    min-height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(3, 60dvh);
+    background-color: greenyellow;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#divImagemResiduo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#ImagemResiduo{
+    width: 70dvh;
+    height: 70dvh;
+    aspect-ratio: 1 / 1;
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+}
+#descricaoResiduo{
+    word-break: keep-all;
+    overflow-y: auto ;
+    width: 90dvh;
+    height: 40dvh;
+    border-radius: 1dvh;
+    scroll-behavior: smooth;
+    
+}  
+#descricaoResiduo::-webkit-scrollbar {
+    width: 1.5dvh; 
+} 
+#descricaoResiduo::-webkit-scrollbar-track {
+    background: #45a049;
+    border-radius: 1dvh ;
+    margin-left: 2dvh;
+}
+#descricaoResiduo::-webkit-scrollbar-thumb {
+    height: 5dvh;
+    width: 1.5dvh;
+    background-color: greenyellow; 
+    border-radius: 2dvh;
+    border: 2px solid #45a049;
+    padding-left: 2dvh;
+}
+#divNomeResiduo, #divTipoResiduo{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 3dvh;
+}
+
+p{
+    font-size: 2.5rem;
+}
+
+
+/*footer*/
+footer{
+    width: 100%;
+    height: 5dvh;
+    background-color: #45a049;
+    border: 2px solid black;
+}

@@ -140,20 +140,20 @@ label{
 }
 option[value = "1"]{
     background-color: yellow;
-    color: black;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
-option[value = "2"]{
-    background-color:rgb(225, 64, 64);
-    color: black;
-}
 option[value = "3"]{
+    background-color:rgb(225, 64, 64);
+    color: rgb(255, 255, 255);
+}
+option[value = "2"]{
     background-color: rgb(55, 55, 255);
-    color: black;
+    color: rgb(255, 252, 252);
 }
 option[value = "4"]{
     background-color: rgb(111, 56, 40);
-    color: black;
+    color: rgb(255, 255, 255);
 }
 #descricaoResiduo{
     width: 46dvh;
@@ -167,6 +167,22 @@ option[value = "4"]{
     border: 3px solid black;
     font-family: 'Comic Neue', sans-serif;
     font-size: larger;
+}
+#descricaoResiduo::-webkit-scrollbar {
+    width: 1.5dvh; 
+} 
+#descricaoResiduo::-webkit-scrollbar-track {
+    background: #45a049;
+    border-radius: 1dvh ;
+    margin-left: 2dvh;
+}
+#descricaoResiduo::-webkit-scrollbar-thumb {
+    height: 5dvh;
+    width: 0.5dvh;
+    background-color: greenyellow; 
+    border-radius: 2dvh;
+    border: 2px solid greenyellow;
+    padding-left: 2dvh;
 }
 
 
@@ -190,6 +206,10 @@ input[type="file"] {
     display: none;
 }
 #preview {
+    width: 100dvh;
+    height: 150dvh;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border: 2px solid #ccc;
     border-radius: 5px;
 }
