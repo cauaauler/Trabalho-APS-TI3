@@ -73,7 +73,7 @@ header{
     align-items: center;
 }
 #divBtnBack{
-    height: 10dvh;
+    height: 6dvh;
     display: flex;
     align-items: center;
 }
@@ -88,19 +88,45 @@ header{
     cursor: pointer;
     margin-left: 4dvh;
 }
+.classButton{
+    width: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+#divDeleteButton{
+    margin-top: 3dvh;
+}
+#delBtn{
+    width: 6dvh;
+    height: 6dvh;
+    cursor: pointer;
+    border-radius: 1dvh ;
+    background-color: rgb(249, 84, 84);
+    font-size: 1.3em;
+}
+#editBtn{
+    font-size: 1.3em;
+    width: 6dvh;
+    height: 6dvh;
+    cursor: pointer;
+    border-radius: 1dvh ;
+    background-color: rgb(237, 248, 155);
+}
 /*main*/
 main{
     min-height: 80dvh;
     display: flex;
     flex-direction: column;
-    grid-template-columns: repeat(3, 60dvh);
     background-color: greenyellow;
 }
 .container{
+    min-height: min-content;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    margin-top: 3dvh;
 }
 #divImagemResiduo{
     display: flex;
@@ -109,8 +135,8 @@ main{
     align-items: center;
 }
 #ImagemResiduo{
-    width: 70dvh;
-    height: 70dvh;
+    width: 65dvh;
+    height: 65dvh;
     aspect-ratio: 1 / 1;
 }
 .conteudo{
@@ -118,9 +144,8 @@ main{
     flex-direction: column;
 }
 #descricaoResiduo{
-    word-break: keep-all;
     overflow-y: auto ;
-    width: 90dvh;
+    width: 100dvh;
     height: 40dvh;
     border-radius: 1dvh;
     scroll-behavior: smooth;
@@ -143,9 +168,11 @@ main{
     padding-left: 2dvh;
 }
 #divNomeResiduo, #divTipoResiduo{
+    width: 80dvh;
+    height: 5;
     display: flex;
     flex-direction: row;
-    padding-bottom: 3dvh;
+    padding-bottom: 2dvh;
 }
 
 p{

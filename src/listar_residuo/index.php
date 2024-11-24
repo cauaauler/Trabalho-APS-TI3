@@ -42,11 +42,11 @@ $residuos = Residuo::findAll();
                             <div class='conteudo'>
                                 <div class='divConteudo'>
                                     <div id='divNomeResiduo'>
-                                        <label id='lblnomeResiduo'>Nome: </label>
+                                        <label id='lblnomeResiduo'><b>Nome:</b></label>
                                         <label id='resNome'>{$residuo->getNome()}</label>
                                     </div>
                                     <div id='divTipoResiduo'>
-                                        <label id='lbltipoResiduo'>Tipo: </label>
+                                        <label id='lbltipoResiduo'><b>Tipo:</b></label>
                                         <label id='resTipo'>{$tipos_residuo[$residuo->getIdTipoResiduo()-1]->getTipo()}</label>
                                     </div>
                                 </div>

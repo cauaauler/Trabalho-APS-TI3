@@ -48,21 +48,29 @@ if(isset($erro)) {
     </header>
     <main>
     <div id = 'divBtnBack'><a> <button id= 'btnback'>↩ Voltar</button> </a></div>
-        <div class="container {$tipos_residuo[$residuo->getIdTipoResiduo()-1]->getTipo()}">
+        <div class="container">
             <div id="divImagemResiduo">
                 <img id="ImagemResiduo" src="../../uploads/<?= $residuo->getImagem() ?>.jpg" alt="Imagem do Residuo">
             </div>
             <div class="conteudo">
-            <div id="divNomeResiduo">
-                <p><b>Nome: </b></p> <p><?php echo $residuo->getNome(); ?></p>
+                <div id="divNomeResiduo">
+                    <p><b>Nome: </b></p> <p><?php echo $residuo->getNome(); ?></p>
+                </div>
+                <div id="divTipoResiduo">
+                    <p><b>Tipo de Residuo: </b></p> <p><?php echo $tipo_residuo->getTipo(); ?></p>
+                </div>
+                <div>
+                    <p><b>Descrição: </b></p> <p id="descricaoResiduo"><?php echo $residuo->getDescricao(); ?></p>
+                </div>
             </div>
-            <div id="divTipoResiduo">
-                <p><b>Tipo de Residuo: </b></p> <p><?php echo $tipo_residuo->getTipo(); ?></p>
+            <div class='classButton'>
+                    <div id='divEditButton'>
+                        <input id='editBtn' type='submit' value='✏️'>
+                    </div>
+                    <div id='divDeleteButton'>
+                        <a href='../excluir_residuo/excluir_residuo.php?id={$residuo->getId()}'><button id='delBtn'>🗑️</button></a>
+                    </div>
             </div>
-            <div>
-                <p><b>Descrição: </b></p> <p id="descricaoResiduo"><?php echo $residuo->getDescricao(); ?></p>
-            </div>
-        </div>
         </div>
     </main>
     <footer></footer>
