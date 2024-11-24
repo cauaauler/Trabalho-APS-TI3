@@ -65,7 +65,7 @@ if(isset($erro)) {
             </div>
             <div class='classButton'>
                     <div id='divEditButton'>
-                        <input id='editBtn' type='submit' value='✏️'>
+                        <a href="../editar_residuo/index.php"><input id='editBtn' type='submit' value='✏️'></a>
                     </div>
                     <div id='divDeleteButton'>
                         <a href='../excluir_residuo/excluir_residuo.php?id={$residuo->getId()}'><button id='delBtn'>🗑️</button></a>

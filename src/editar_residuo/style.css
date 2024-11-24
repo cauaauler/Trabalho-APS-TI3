@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100dvh;
+    background-color: greenyellow;
+}
+#BtnLeave{
+    width: 10dvh;
+    height: 3dvh;
+    background-color: red;
+    color: white;
+    border-radius: 1dvh;
+    cursor: pointer;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80dvh;
+}
+footer{
+    width: 100%;
+    height: 5dvh;
+    background-color: #45a049;
+    border: 2px solid black;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1{
+    font-size: 5em;
+    font-family: 'Comic Neue', sans-serif ;
+    margin-bottom: 5dvh;
+}
+header{
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #45a049;
+    border: 2px solid black;
+}
+#divLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2dvh ;
+}
+#divLabel{
+    padding-left: 2dvh;
+}
+#LogoIfrs{
+    color: black;
+    font-size: larger;
+}
+#divUser{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+#nameUser{
+    font-size: larger;
+}
+#DivBtnSair{
+    padding-right: 3dvh;
+}
+#imgUser{
+    padding: 1dvh;
+}
+label{
+    font-size: 3em;
+    font-family: 'Comic Neue', sans-serif ;
+}
+#divBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#btnCadastrar, #btnCancelar{
+    width: 20dvh;
+    height: 7dvh;
+}
+#divImagemResiduo {
+    width: 70dvh;
+    height: 80dvh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#divNomeResiduo, #divTipoResiduo, #divDescricaoResiduo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.5dvh;
+}
+#nomeResiduo{
+    width: 47dvh;
+    height: 5dvh;
+    border-radius: 1dvh;
+    margin-left: 2dvh;
+    background-color: #45a049;
+    color: white;
+    padding-left: 1dvh;
+    border: 3px solid black;
+    font-family: 'Comic Neue', sans-serif;
+    font-size: larger;
+}
+#selectTipoResiduo{
+    width: 34dvh;
+    height: 6dvh;
+    border-radius: 1dvh;
+    margin-left: 2dvh;
+    background-color: #989800;
+    color: rgb(255, 255, 255);
+    padding-left: 1dvh;
+    border: 3px solid black;
+    font-family: 'Comic Neue', sans-serif;
+    font-size: larger;
+    cursor: pointer;
+}
+option[value = "1"]{
+    background-color: yellow;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+option[value = "3"]{
+    background-color:rgb(225, 64, 64);
+    color: rgb(255, 255, 255);
+}
+option[value = "2"]{
+    background-color: rgb(55, 55, 255);
+    color: rgb(255, 252, 252);
+}
+option[value = "4"]{
+    background-color: rgb(111, 56, 40);
+    color: rgb(255, 255, 255);
+}
+#descricaoResiduo{
+    width: 46dvh;
+    height: 20dvh;
+    border-radius: 1dvh;
+    margin-left: 2dvh;
+    padding-top: 1dvh;
+    background-color: #45a049;
+    color: white;
+    padding-left: 1dvh;
+    border: 3px solid black;
+    font-family: 'Comic Neue', sans-serif;
+    font-size: larger;
+}
+#descricaoResiduo::-webkit-scrollbar {
+    width: 1.5dvh; 
+} 
+#descricaoResiduo::-webkit-scrollbar-track {
+    background: #45a049;
+    border-radius: 1dvh ;
+    margin-left: 2dvh;
+}
+#descricaoResiduo::-webkit-scrollbar-thumb {
+    height: 5dvh;
+    width: 0.5dvh;
+    background-color: greenyellow; 
+    border-radius: 2dvh;
+    border: 2px solid greenyellow;
+    padding-left: 2dvh;
+}
+
+
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+    background-color: #45a049;
+}
+input[type="file"] {
+    display: none;
+}
+#preview {
+    width: 100dvh;
+    height: 150dvh;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+#btnCancelar{
+    width: 30dvh;
+    height: 5dvh;
+    background-color: transparent;
+    color: red;
+    font-family: 'Comic Neue', sans-serif ;
+    font-size: 2rem;
+    border-radius: 1dvh;
+    cursor: pointer;
+
+    transition-duration: 0.5s;
+}
+#btnCancelar:hover{
+    background-color: red;
+    color: white;
+}
+#btnCadastrar{
+    width: 30dvh;
+    height: 5dvh;
+    background-color: transparent;
+    color: #45a049;
+    font-family: 'Comic Neue', sans-serif ;
+    font-size: 2rem;
+    border-radius: 1dvh;
+    cursor: pointer;
+
+    transition-duration: 0.5s;
+}
+#btnCadastrar:hover{
+    background-color: #45a049;
+    color: white;
+}
+#preview{
+    height: 30dvh;
+    aspect-ratio: 1 / 1;
+}
+
+
