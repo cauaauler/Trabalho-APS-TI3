@@ -139,7 +139,7 @@ label{
     cursor: pointer;
 }
 option[value = "1"]{
-    background-color: yellow;
+    background-color: #989800;
     color: rgb(255, 255, 255);
     cursor: pointer;
 }

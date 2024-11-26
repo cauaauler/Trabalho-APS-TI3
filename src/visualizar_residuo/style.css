@@ -145,7 +145,7 @@ main{
 }
 #descricaoResiduo{
     overflow-y: auto ;
-    width: 100dvh;
+    width: 120dvh;
     height: 40dvh;
     border-radius: 1dvh;
     scroll-behavior: smooth;

@@ -23,6 +23,7 @@ if(isset($erro)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/LogoReciclaIF.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Resíduo Completo</title>
 </head>
@@ -47,7 +48,7 @@ if(isset($erro)) {
         </div>
     </header>
     <main>
-    <div id = 'divBtnBack'><a> <button id= 'btnback'>↩ Voltar</button> </a></div>
+    <div id = 'divBtnBack'><a href="../listar_residuo/"> <button id= 'btnback'>↩ Voltar</button> </a></div>
         <div class="container">
             <div id="divImagemResiduo">
                 <img id="ImagemResiduo" src="../../uploads/<?= $residuo->getImagem() ?>.jpg" alt="Imagem do Residuo">
@@ -68,7 +69,9 @@ if(isset($erro)) {
                         <a href="../editar_residuo/index.php"><input id='editBtn' type='submit' value='✏️'></a>
                     </div>
                     <div id='divDeleteButton'>
-                        <a href='../excluir_residuo/excluir_residuo.php?id={$residuo->getId()}'><button id='delBtn'>🗑️</button></a>
+                        <?php 
+                            echo "<a href='../excluir_residuo/excluir_residuo.php?id={$residuo->getId()}'><button id='delBtn'>🗑️</button></a>";
+                        ?>
                     </div>
             </div>
         </div>
