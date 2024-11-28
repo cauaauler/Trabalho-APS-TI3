@@ -46,38 +46,29 @@ $tiposResiduos = TipoResiduo::findAll();
             <a href="">
                 <img id="imgLogo" src="../../img/LogoReciclaIF3.png" alt="">
             </a>
-                <div id="divLabel">
-                    <label id="LogoIfrs"> <b>INSTITUTO FEDERAL <br> DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA <br> Rio Grande do Sul</b></label>
-                </div>
         </div>
         <div id="divUser">
-            <div id="DivBtnSair">
                 <button id="BtnLeave">Sair</button>
+            <div id="divUserNew">
+                <div id="User">
+                    <label id="nameUser" for=""><b>Olá, administrador </b></label>
+                </div>
+                <img id="imgUser" src="../../img/avatar.png" alt="">
             </div>
-            <div id="User">
-                <label id="nameUser" for=""><b>Olá, administrador </b></label>
-            </div>
-            <img id="imgUser" src="../../img/avatar.png" alt="">
         </div>
     </header>
     <main>
         <form action="index.php" method="post" enctype="multipart/form-data">
-            <div id="divImagemResiduo">
-                <label for="imgResiduo" class="custom-file-label">Escolha uma Imagem</label>
-                <input type="file" name="imagem" id="imgResiduo" accept="image/*" hidden required>
-                <div id="previewContainer">
-                    <img id="preview" src="" alt="Preview da imagem" style="display: none; max-width: 100%; height: auto; margin-top: 20px;">
-                </div>
-            </div>
             <div class="container">
-                <h1>Cadastrar Resíduo</h1>
+                <div id="divTitulo">
+                    <h1>Cadastro de resíduo</h1>
+                </div>
                 <div id="divNomeResiduo">
-                    <label for="nomeResiduo">Nome:</label>
-                    <input type="text" name="nome" id="nomeResiduo" required>
+                    <input type="text" name="nome" id="nomeResiduo" placeholder="Nome do resíduo..." required>
                 </div>
                 <div id="divTipoResiduo">
-                    <label for="selectTipoResiduo">Tipo de Resíduo:</label>
-                    <select name="id_tipo_residuo" id="selectTipoResiduo" required>
+                    <label id="lblTipoResiduo" for="selectTipoResiduo">Tipo de Resíduo:</label>
+                    <select name="id_tipo_residuo" id="selectTipoResiduo"  required>
                         <?php
                             foreach($tiposResiduos as $tipoResiduo) {
                                 echo "<option value=" . $tipoResiduo->getId() . ">" . $tipoResiduo->getTipo() . "</option>";
@@ -86,8 +77,12 @@ $tiposResiduos = TipoResiduo::findAll();
                     </select>
                 </div>
                 <div id="divDescricaoResiduo">
-                    <label for="">Descrição:</label>
-                    <textarea id="descricaoResiduo" rows="5" name="descricao" required></textarea>
+                    <textarea id="descricaoResiduo" rows="5" name="descricao" placeholder="Descrição..." required></textarea>
+                </div>
+                <div id="fileUpload">
+                    <input type="file" id="imgResiduo" accept="image/*" name="imagem" required hidden>
+                    <label for="imgResiduo" id="customFileLabel">Escolher Arquivo</label>
+                    <span id="fileName">Nenhum arquivo selecionado</span>
                 </div>
                 <div id="divBtn">
                     <div id="divCancelarResiduo">
