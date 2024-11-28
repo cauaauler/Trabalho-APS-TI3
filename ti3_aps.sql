@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2024 at 09:24 PM
+-- Generation Time: Nov 28, 2024 at 09:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -26,8 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `residuo`
 --
-
-CREATE OR REPLACE DATABASE ti3_aps;
 
 CREATE TABLE `residuo` (
   `id` int(11) NOT NULL,
@@ -59,6 +57,25 @@ INSERT INTO `tipo_residuo` (`id`, `tipo`) VALUES
 (3, 'Plástico'),
 (4, 'Orgânico');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `email`, `senha`) VALUES
+(1, 'admin@gmail.com', 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -77,6 +94,12 @@ ALTER TABLE `tipo_residuo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -91,6 +114,12 @@ ALTER TABLE `residuo`
 --
 ALTER TABLE `tipo_residuo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
