@@ -2,6 +2,13 @@
 include_once __DIR__ . "/../../vendor/autoload.php";
 
 $residuos = Residuo::findAll();
+
+if(isset($_GET['erro'])) {
+    echo "<script>alert('Ocorreu um erro!'); window.location.href = '../listar_residuo/';</script></script>";
+}
+
+session_start();
+$_SESSION['paginaAnterior'] = "listar_residuo";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +17,7 @@ $residuos = Residuo::findAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../img/LogoReciclaIF.png" type="image/x-icon">
-    <title>Visualizar Resíduo</title>
+    <title>Listar Resíduos</title>
 </head>
 <body>
     <?php 
@@ -28,7 +35,7 @@ $residuos = Residuo::findAll();
                 echo "<div>
                         <div class='classBtn'>
                             <div id='divEditButton'>
-                                <input id='editBtn' type='submit' value='✏️'>
+                                <a href='../editar_residuo/index.php?id={$residuo->getId()}'><button id='editBtn'>✏️</button></a>
                             </div>
                             <div id='divDeleteButton'>
                                 <a href='../excluir_residuo/excluir_residuo.php?id={$residuo->getId()}'><button id='delBtn'>🗑️</button></a>

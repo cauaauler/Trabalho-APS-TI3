@@ -14,7 +14,7 @@ if(isset($_GET['id'])) {
 }
 
 if(isset($erro)) {
-    header('Location: ../index.php?erro');
+    header('Location: ../listar_residuo/?erro');
 } else {
     header("Location: ../listar_residuo/");
 }

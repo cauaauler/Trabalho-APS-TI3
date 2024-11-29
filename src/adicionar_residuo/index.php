@@ -86,7 +86,7 @@ $tiposResiduos = TipoResiduo::findAll();
                 </div>
                 <div id="divBtn">
                     <div id="divCancelarResiduo">
-                        <button id="btnCancelar" onclick="window.location.href = '../index.php'">Cancelar</button>
+                        <button id="btnCancelar" onclick="window.location.href = '../listar_residuo/'">Cancelar</button>
                     </div>
                     <div id="divCadastrarResiduo">
                         <input type="submit" name="submit" id="btnCadastrar" value="Cadastrar"/>
@@ -98,19 +98,4 @@ $tiposResiduos = TipoResiduo::findAll();
     <footer>
     </footer>
 </body>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.has('erro')) {
-        alert("Ocorreu um erro ao cadastrar o residuo");
-    } else if (urlParams.has('sucesso')) {
-        alert("Residuo cadastrado com sucesso");
-    }
-
-    const url = new URL(window.location.href);
-    url.search = "";
-    window.history.replaceState({}, document.title, url.toString());
-})
-</script>
 </html>

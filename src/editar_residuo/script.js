@@ -14,7 +14,6 @@ document.getElementById('selectTipoResiduo').addEventListener('change', function
     this.style.color = selectedValue === 'organico' ? 'black' : 'white';
     this.style.color = selectedValue[0] == 'black';
 });
-
 document.getElementById('imgResiduo').addEventListener('change', function () {
     const fileName = this.files[0] ? this.files[0].name : 'Nenhum arquivo selecionado';
     document.getElementById('fileName').textContent = fileName;

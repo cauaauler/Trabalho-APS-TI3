@@ -14,8 +14,11 @@ if(isset($_GET['id'])) {
 }
 
 if(isset($erro)) {
-    header('Location: ../index.php');
+    header('Location: ../listar_residuo/?erro');
 }
+
+session_start();
+$_SESSION['paginaAnterior'] = "visualizar_residuo?id={$_GET['id']}";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +28,7 @@ if(isset($erro)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/LogoReciclaIF.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>Resíduo Completo</title>
+    <title>Visualizar Resíduo Completo</title>
 </head>
 <body>
 <header>
@@ -66,7 +69,9 @@ if(isset($erro)) {
             </div>
             <div class='classButton'>
                     <div id='divEditButton'>
-                        <a href="../editar_residuo/index.php"><input id='editBtn' type='submit' value='✏️'></a>
+                        <?php
+                            echo "<a href='../editar_residuo/index.php?id={$residuo->getId()}'><button id='editBtn'>✏️</button></a>"
+                        ?>
                     </div>
                     <div id='divDeleteButton'>
                         <?php 
