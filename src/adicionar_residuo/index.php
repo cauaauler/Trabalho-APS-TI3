@@ -1,13 +1,20 @@
-<?php 
+<?php
 include_once __DIR__ . "/../../vendor/autoload.php";
 
-if(isset($_POST['submit'])) {
-    if($_POST['nome'] != null && $_POST['descricao'] != null
-    && $_FILES['imagem']['error'] == 0 && $_POST['id_tipo_residuo'] != null) {
-        $nomeImagem = uniqid();
-        $destinoArquivo = "../../uploads/". $nomeImagem . ".jpg";
+include_once __DIR__ . "/../classes/Residuo.php";
+include_once __DIR__ . "/../classes/TipoResiduo.php";
 
-        if(move_uploaded_file($_FILES['imagem']['tmp_name'], $destinoArquivo)) {
+if (isset($_POST['submit'])) {
+    if (
+        $_POST['nome'] != null && $_POST['descricao'] != null
+        && $_FILES['imagem']['error'] == 0 && $_POST['id_tipo_residuo'] != null 
+        //aqui na verificação poderia mostrar uma mensagem
+        && strlen($_POST['nome']) < 25
+    ) {
+        $nomeImagem = uniqid();
+        $destinoArquivo = "../../uploads/" . $nomeImagem . ".jpg";
+
+        if (move_uploaded_file($_FILES['imagem']['tmp_name'], $destinoArquivo)) {
             $residuo = new Residuo($_POST['nome'], $_POST['descricao'], $nomeImagem, $_POST['id_tipo_residuo']);
             $residuo->save();
 
@@ -21,9 +28,9 @@ if(isset($_POST['submit'])) {
     }
 }
 
-if(isset($erro)) {
+if (isset($erro)) {
     header("Location: index.php?erro");
-} else if(isset($sucesso)) {
+} else if (isset($sucesso)) {
     header("Location: index.php?sucesso");
 }
 
@@ -32,6 +39,7 @@ $tiposResiduos = TipoResiduo::findAll();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,22 +48,12 @@ $tiposResiduos = TipoResiduo::findAll();
     <script src="script.js" defer></script>
     <title>Cadastro de Resíduos</title>
 </head>
+
 <body>
-<header>
-        <div id="divLogo">
-            <a href="">
-                <img id="imgLogo" src="../../img/LogoReciclaIF3.png" alt="">
-            </a>
-        </div>
-        <div id="divUser">
-                <button id="BtnLeave">Sair</button>
-            <div id="divUserNew">
-                <div id="User">
-                    <label id="nameUser" for=""><b>Olá, administrador </b></label>
-                </div>
-                <img id="imgUser" src="../../img/avatar.png" alt="">
-            </div>
-        </div>
+    <header>
+        <?php
+        include_once __DIR__ . "/../components/header_login.html";
+        ?>
     </header>
     <main>
         <form action="index.php" method="post" enctype="multipart/form-data">
@@ -68,11 +66,11 @@ $tiposResiduos = TipoResiduo::findAll();
                 </div>
                 <div id="divTipoResiduo">
                     <label id="lblTipoResiduo" for="selectTipoResiduo">Tipo de Resíduo:</label>
-                    <select name="id_tipo_residuo" id="selectTipoResiduo"  required>
+                    <select name="id_tipo_residuo" id="selectTipoResiduo" required>
                         <?php
-                            foreach($tiposResiduos as $tipoResiduo) {
-                                echo "<option value=" . $tipoResiduo->getId() . ">" . $tipoResiduo->getTipo() . "</option>";
-                            }
+                        foreach ($tiposResiduos as $tipoResiduo) {
+                            echo "<option value=" . $tipoResiduo->getId() . ">" . $tipoResiduo->getTipo() . "</option>";
+                        }
                         ?>
                     </select>
                 </div>
@@ -89,7 +87,7 @@ $tiposResiduos = TipoResiduo::findAll();
                         <button id="btnCancelar" onclick="window.location.href = '../listar_residuo/'">Cancelar</button>
                     </div>
                     <div id="divCadastrarResiduo">
-                        <input type="submit" name="submit" id="btnCadastrar" value="Cadastrar"/>
+                        <input type="submit" name="submit" id="btnCadastrar" value="Cadastrar" />
                     </div>
                 </div>
             </div>
@@ -98,4 +96,5 @@ $tiposResiduos = TipoResiduo::findAll();
     <footer>
     </footer>
 </body>
+
 </html>

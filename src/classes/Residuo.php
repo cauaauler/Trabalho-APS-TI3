@@ -1,5 +1,7 @@
 <?php 
 
+include_once __DIR__ . "/../classes/ActiveRecord.php";
+
 class Residuo implements ActiveRecord{
     private int $id;
     private bool $ativo;

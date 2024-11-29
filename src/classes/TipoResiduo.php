@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+include_once __DIR__ . "/../classes/ActiveRecord.php";
+include_once __DIR__ . "/../classes/MySQL.php";
+
 class TipoResiduo {
     private int $id;
     
