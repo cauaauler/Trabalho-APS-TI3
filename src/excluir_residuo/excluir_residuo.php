@@ -23,6 +23,6 @@ if(isset($_GET['id'])) {
 if(isset($erro)) {
     header('Location: ../listar_residuo/?erro');
 } else {
-    header("Location: ../listar_residuo/");
+    header("Location: ../listar_residuo/?sucesso");
 }
 ?>

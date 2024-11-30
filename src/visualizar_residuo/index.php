@@ -16,9 +16,6 @@ if(isset($_GET['id'])) {
 if(isset($erro)) {
     header('Location: ../listar_residuo/?erro');
 }
-
-session_start();
-$_SESSION['paginaAnterior'] = "visualizar_residuo?id={$_GET['id']}";
 ?>
 
 <!DOCTYPE html>
