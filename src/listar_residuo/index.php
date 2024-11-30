@@ -1,14 +1,14 @@
 <?php
 include_once __DIR__ . "/../../vendor/autoload.php";
 
+session_start();
+$_SESSION['paginaAnterior'] = "listar_residuo";
+
 $residuos = Residuo::findAll();
 
 if (isset($_GET['erro'])) {
     echo "<script>alert('Ocorreu um erro!'); window.location.href = '../listar_residuo/';</script></script>";
 }
-
-session_start();
-$_SESSION['paginaAnterior'] = "listar_residuo";
 ?>
 <!DOCTYPE html>
 <html lang="en">

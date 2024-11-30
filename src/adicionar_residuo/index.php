@@ -1,6 +1,12 @@
 <?php 
 include_once __DIR__ . "/../../vendor/autoload.php";
 
+session_start();
+
+if($_SESSION['logado'] != true) {
+    echo "<script>alert('Por favor, realize o login!'); window.location.href = '../login/';</script></script>";
+}
+
 if(isset($_POST['submit'])) {
     if($_POST['nome'] != null && $_POST['descricao'] != null
     && $_FILES['imagem']['error'] == 0 && $_POST['id_tipo_residuo'] != null) {

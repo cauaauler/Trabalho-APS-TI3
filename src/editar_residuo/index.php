@@ -3,6 +3,10 @@ include_once __DIR__ . "/../../vendor/autoload.php";
 
 session_start();
 
+if($_SESSION['logado'] != true) {
+    echo "<script>alert('Por favor, realize o login!'); window.location.href = '../login/';</script></script>";
+}
+
 if(isset($_GET['id'])) {
     $_SESSION['id'] = $_GET['id'];
 }
@@ -26,26 +30,23 @@ if(isset($erro)) {
 $tiposResiduos = TipoResiduo::findAll();
 
 if(isset($_POST['submit'])) {
-    if($_POST['nome'] != null && $_POST['descricao'] != null
-    && $_POST['id_tipo_residuo'] != null) {
-        $residuo = Residuo::find($_SESSION['id']);
+    $residuo = Residuo::find($_SESSION['id']);
 
-        $residuo->setNome($_POST['nome']);
-        $residuo->setDescricao($_POST['descricao']);
-        $residuo->setIdTipoResiduo($_POST['id_tipo_residuo']);
+    $residuo->setNome($_POST['nome']);
+    $residuo->setDescricao($_POST['descricao']);
+    $residuo->setIdTipoResiduo($_POST['id_tipo_residuo']);
 
-        if($_FILES['imagem']['error'] == 0 && $_FILES['imagem']['name'] != null) {
-            $nomeImagem = uniqid();
-            $destinoArquivo = "../../uploads/". $nomeImagem . ".jpg";
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $destinoArquivo);
-            $residuo->setImagem($nomeImagem);
-        }
-
-        $residuo->save();
-        $_SESSION['id'] = null;
-        
-        header("Location: ../listar_residuo/?sucesso");
+    if($_FILES['imagem']['error'] == 0 && $_FILES['imagem']['name'] != null) {
+        $nomeImagem = uniqid();
+        $destinoArquivo = "../../uploads/". $nomeImagem . ".jpg";
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $destinoArquivo);
+        $residuo->setImagem($nomeImagem);
     }
+
+    $residuo->save();
+    $_SESSION['id'] = null;
+    
+    header("Location: ../listar_residuo/?sucesso");
 }
 ?>
 
@@ -85,14 +86,14 @@ if(isset($_POST['submit'])) {
                 <div id="divNomeResiduo">
                     <?php
                         echo "<input type='text' name='nome' id='nomeResiduo' placeholder='Nome do resíduo...'
-                    required value='";
+                     value='";
                         echo $residuo->getNome();
                         echo "'>";
                     ?>
                 </div>
                 <div id="divTipoResiduo">
                     <label id="lblTipoResiduo" for="selectTipoResiduo">Tipo de Resíduo:</label>
-                    <select name="id_tipo_residuo" id="selectTipoResiduo"  required>
+                    <select name="id_tipo_residuo" id="selectTipoResiduo"  >
                         <?php
                             foreach($tiposResiduos as $tipoResiduo) {
                                 echo "<option value=" . $tipoResiduo->getId() . ">" . $tipoResiduo->getTipo() . "</option>";
@@ -103,13 +104,13 @@ if(isset($_POST['submit'])) {
                 <div id="divDescricaoResiduo">
                     <?php 
                         echo "<textarea id='descricaoResiduo' rows='5' name='descricao'
-                        placeholder='Descrição...' required>";
+                        placeholder='Descrição...' >";
                         echo $residuo->getDescricao();
                         echo "</textarea>";
                     ?>
                 </div>
                 <div id="fileUpload">
-                    <input type="file" id="imgResiduo" accept="image/*" name="imagem" required hidden>
+                    <input type="file" id="imgResiduo" accept="image/*" name="imagem"  hidden>
                     <label for="imgResiduo" id="customFileLabel">Escolher Arquivo</label>
                     <span id="fileName">Nenhum arquivo selecionado</span>
                 </div>

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Comic Neue';
+}
+body{
+    width: 100%;
+    height: 100dvh;
+    background-color: rgb(232, 232, 232);
+    font-family: 'Comic Neue';
+}
+#BtnLeave{
+    background-color: red;
+    color: white;
+    border-radius: 1dvh;
+    cursor: pointer;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Neue';
+    padding: 0.3rem;
+}
+header{
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #45a049;
+    border: 2px solid black;
+}
+#divLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2dvh ;
+}
+#divLabel{
+    padding-left: 2dvh;
+}
+#LogoIfrs{
+    color: black;
+    font-size: larger;
+}
+#divUser{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2dvh;
+}
+#divUserNew{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+#nameUser{
+    font-size: larger;
+}
+#DivBtnSair{
+    padding-right: 3dvh;
+}
+#imgUser{
+    padding: 1dvh;
+}
+main{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 80dvh;
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 2dvh;
+}
+#divTitulo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4dvh;
+}
+h1{
+    width: 90%;
+    height: 10dvh;
+    background-color: rgb(85, 202, 85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5em;
+}
+#divNomeResiduo, #divDescricaoResiduo{
+    width: 70dvh;
+    height: 7dvh;
+    background-color: rgb(194, 194, 194);
+    margin-bottom: 3dvh;
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+    font-size: 1.5em;
+}
+#divBtn{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 2dvh;
+}
+#nomeResiduo, #descricaoResiduo{
+    border: transparent;
+    background-color: transparent;
+    width: 80dvh;
+    height: 7dvh;
+    font-size: 1em;
+    font-family: 'Comic Neue';
+    padding-left: 1.5dvh;
+}
+#divBtn{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5dvh;
+}
+#btnCancelar{
+    background-color: rgb(166, 10, 10);
+    color: rgb(255, 255, 255);
+    width: 20dvh;
+    height: 5dvh;
+    border: 1px solid grey;
+    border-radius: 2dvh;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-family: 'Comic Neue';
+}  
+#btnCadastrar{
+    background-color: rgb(85, 202, 85);
+    color: rgb(255, 255, 255);
+    width: 20dvh;
+    height: 5dvh;
+    border: 1px solid grey;
+    border-radius: 2dvh;
+    cursor: pointer;
+    font-family: 'Comic Neue';
+    font-size: 1.5em;
+
+    transition-duration: 0.5s;
+}
+input::placeholder{
+    color: black;
+}
+
+#divInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
