@@ -48,7 +48,7 @@ $tiposResiduos = TipoResiduo::findAll();
             </a>
         </div>
         <div id="divUser">
-                <button id="BtnLeave">Sair</button>
+                <a href="../deslogar.php"><button id="BtnLeave">Sair</button></a>
             <div id="divUserNew">
                 <div id="User">
                     <label id="nameUser" for=""><b>Olá, administrador </b></label>

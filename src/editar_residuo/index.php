@@ -4,7 +4,11 @@ include_once __DIR__ . "/../../vendor/autoload.php";
 session_start();
 
 if(isset($_GET['id'])) {
-    $residuo = Residuo::find($_GET['id']);
+    $_SESSION['id'] = $_GET['id'];
+}
+
+if($_SESSION['id'] != null) {
+    $residuo = Residuo::find($_SESSION['id']);
 
     if($residuo == null || $residuo->getAtivo() == false) {
         $erro = true;
@@ -16,10 +20,33 @@ if(isset($_GET['id'])) {
 }
 
 if(isset($erro)) {
-    header("Location: ../listar_residuo/?erro");
+    header('Location: ../listar_residuo/?erro');
 }
 
 $tiposResiduos = TipoResiduo::findAll();
+
+if(isset($_POST['submit'])) {
+    if($_POST['nome'] != null && $_POST['descricao'] != null
+    && $_POST['id_tipo_residuo'] != null) {
+        $residuo = Residuo::find($_SESSION['id']);
+
+        $residuo->setNome($_POST['nome']);
+        $residuo->setDescricao($_POST['descricao']);
+        $residuo->setIdTipoResiduo($_POST['id_tipo_residuo']);
+
+        if($_FILES['imagem']['error'] == 0 && $_FILES['imagem']['name'] != null) {
+            $nomeImagem = uniqid();
+            $destinoArquivo = "../../uploads/". $nomeImagem . ".jpg";
+            move_uploaded_file($_FILES['imagem']['tmp_name'], $destinoArquivo);
+            $residuo->setImagem($nomeImagem);
+        }
+
+        $residuo->save();
+        $_SESSION['id'] = null;
+        
+        header("Location: ../listar_residuo/?sucesso");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +67,7 @@ $tiposResiduos = TipoResiduo::findAll();
             </a>
         </div>
         <div id="divUser">
-                <button id="BtnLeave">Sair</button>
+                <a href="../deslogar.php"><button id="BtnLeave">Sair</button></a>
             <div id="divUserNew">
                 <div id="User">
                     <label id="nameUser" for=""><b>Olá, administrador </b></label>
@@ -93,7 +120,7 @@ $tiposResiduos = TipoResiduo::findAll();
                         ?>
                     </div>
                     <div id="divCadastrarResiduo">
-                        <input type="submit" name="submit" id="btnCadastrar" value="Cadastrar"/>
+                        <input type="submit" name="submit" id="btnCadastrar" value="Editar"/>
                     </div>
                 </div>
             </div>

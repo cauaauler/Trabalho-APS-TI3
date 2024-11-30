@@ -29,7 +29,7 @@ $_SESSION['paginaAnterior'] = "listar_residuo";
             </a>
         </div>
         <div id="divUser">
-                <button id="BtnLeave">Sair</button>
+                <a href="../deslogar.php"><button id="BtnLeave">Sair</button></a>
             <div id="divUserNew">
                 <div id="User">
                     <label id="nameUser" for=""><b>Olá, administrador </b></label>

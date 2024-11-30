@@ -49,7 +49,7 @@ $_SESSION['paginaAnterior'] = "visualizar_residuo?id={$_GET['id']}";
             </div>
             <img id="imgUser" src="../../img/avatar.png" alt="">
             <div id="DivBtnSair">
-                <button id="BtnLeave">Sair</button>
+                <a href="../deslogar.php"><button id="BtnLeave">Sair</button></a>
             </div>
         </div>
     </header>
