@@ -7,6 +7,10 @@ if($_SESSION['logado'] != true) {
     echo "<script>alert('Por favor, realize o login!'); window.location.href = '../login/';</script></script>";
 }
 
+if(isset($_GET['sucesso'])) {
+    echo "<script>alert('Resíduo cadastrado com sucesso!');</script>";
+}
+
 if(isset($_POST['submit'])) {
     if($_POST['nome'] != null && $_POST['descricao'] != null
     && $_FILES['imagem']['error'] == 0 && $_POST['id_tipo_residuo'] != null) {
@@ -20,7 +24,6 @@ if(isset($_POST['submit'])) {
             $sucesso = true;
         } else {
             $erro = true;
-            die;
         }
     } else {
         $erro = true;

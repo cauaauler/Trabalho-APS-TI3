@@ -117,7 +117,7 @@ if(isset($_POST['submit'])) {
                 <div id="divBtn">
                     <div id="divCancelarResiduo">
                         <?php 
-                            echo "<button id='btnCancelar' onclick=\"window.location.href = '../{$_SESSION['paginaAnterior']}'\">Cancelar</button>";
+                            echo "<button type='button' id='btnCancelar' onclick=\"window.location.href = '../{$_SESSION['paginaAnterior']}'\">Cancelar</button>";
                         ?>
                     </div>
                     <div id="divCadastrarResiduo">

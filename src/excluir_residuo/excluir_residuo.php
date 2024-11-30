@@ -5,6 +5,7 @@ session_start();
 
 if($_SESSION['logado'] != true) {
     echo "<script>alert('Por favor, realize o login!'); window.location.href = '../login/';</script></script>";
+    die;
 }
 
 if(isset($_GET['id'])) {
