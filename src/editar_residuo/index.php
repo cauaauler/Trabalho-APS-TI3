@@ -1,12 +1,24 @@
-<?php 
+<?php
 include_once __DIR__ . "/../../vendor/autoload.php";
+
+include_once __DIR__ . "/../classes/Residuo.php";
+include_once __DIR__ . "/../classes/TipoResiduo.php";
+include_once __DIR__ . "/../classes/MySQL.php";
 
 session_start();
 
-if(isset($_GET['id'])) {
-    $residuo = Residuo::find($_GET['id']);
+// if ($_SESSION['logado'] != true) {
+//     echo "<script>alert('Por favor, realize o login!'); window.location.href = '../login/';</script></script>";
+// }
 
-    if($residuo == null || $residuo->getAtivo() == false) {
+if (isset($_GET['id'])) {
+    $_SESSION['id'] = $_GET['id'];
+}
+
+if ($_SESSION['id'] != null) {
+    $residuo = Residuo::find($_SESSION['id']);
+
+    if ($residuo == null || $residuo->getAtivo() == false) {
         $erro = true;
     } else {
         $tipo_residuo = TipoResiduo::find($residuo->getIdTipoResiduo());
@@ -15,15 +27,33 @@ if(isset($_GET['id'])) {
     $erro = true;
 }
 
-if(isset($erro)) {
-    header("Location: ../listar_residuo/?erro");
+if (isset($erro)) {
+    header('Location: ../listar_residuo/?erro');
 }
-
 $tiposResiduos = TipoResiduo::findAll();
-?>
+if (isset($_POST['submit'])) {
+    $residuo = Residuo::find($_SESSION['id']);
 
+    $residuo->setNome($_POST['nome']);
+    $residuo->setDescricao($_POST['descricao']);
+    $residuo->setIdTipoResiduo($_POST['id_tipo_residuo']);
+
+    if ($_FILES['imagem']['error'] == 0 && $_FILES['imagem']['name'] != null) {
+        $nomeImagem = uniqid();
+        $destinoArquivo = "../../uploads/" . $nomeImagem . ".jpg";
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $destinoArquivo);
+        $residuo->setImagem($nomeImagem);
+    }
+
+    $residuo->save();
+    $_SESSION['id'] = null;
+
+    header("Location: ../listar_residuo/?sucesso");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,22 +62,12 @@ $tiposResiduos = TipoResiduo::findAll();
     <script src="script.js" defer></script>
     <title>Edição de Resíduos</title>
 </head>
+
 <body>
-<header>
-        <div id="divLogo">
-            <a href="">
-                <img id="imgLogo" src="../../img/LogoReciclaIF3.png" alt="">
-            </a>
-        </div>
-        <div id="divUser">
-                <button id="BtnLeave">Sair</button>
-            <div id="divUserNew">
-                <div id="User">
-                    <label id="nameUser" for=""><b>Olá, administrador </b></label>
-                </div>
-                <img id="imgUser" src="../../img/avatar.png" alt="">
-            </div>
-        </div>
+    <header>
+        <?php
+        include_once __DIR__ . "/../components/header_login.html";
+        ?>
     </header>
     <main>
         <form action="index.php" method="post" enctype="multipart/form-data">
@@ -57,28 +77,28 @@ $tiposResiduos = TipoResiduo::findAll();
                 </div>
                 <div id="divNomeResiduo">
                     <?php
-                        echo "<input type='text' name='nome' id='nomeResiduo' placeholder='Nome do resíduo...'
+                    echo "<input type='text' name='nome' id='nomeResiduo' placeholder='Nome do resíduo...'
                     required value='";
-                        echo $residuo->getNome();
-                        echo "'>";
+                    echo $residuo->getNome();
+                    echo "'>";
                     ?>
                 </div>
                 <div id="divTipoResiduo">
                     <label id="lblTipoResiduo" for="selectTipoResiduo">Tipo de Resíduo:</label>
-                    <select name="id_tipo_residuo" id="selectTipoResiduo"  required>
+                    <select name="id_tipo_residuo" id="selectTipoResiduo" required>
                         <?php
-                            foreach($tiposResiduos as $tipoResiduo) {
-                                echo "<option value=" . $tipoResiduo->getId() . ">" . $tipoResiduo->getTipo() . "</option>";
-                            }
+                        foreach ($tiposResiduos as $tipoResiduo) {
+                            echo "<option value=" . $tipoResiduo->getId() . ">" . $tipoResiduo->getTipo() . "</option>";
+                        }
                         ?>
                     </select>
                 </div>
                 <div id="divDescricaoResiduo">
-                    <?php 
-                        echo "<textarea id='descricaoResiduo' rows='5' name='descricao'
+                    <?php
+                    echo "<textarea id='descricaoResiduo' rows='5' name='descricao'
                         placeholder='Descrição...' required>";
-                        echo $residuo->getDescricao();
-                        echo "</textarea>";
+                    echo $residuo->getDescricao();
+                    echo "</textarea>";
                     ?>
                 </div>
                 <div id="fileUpload">
@@ -88,12 +108,12 @@ $tiposResiduos = TipoResiduo::findAll();
                 </div>
                 <div id="divBtn">
                     <div id="divCancelarResiduo">
-                        <?php 
-                            echo "<button id='btnCancelar' onclick=\"window.location.href = '../{$_SESSION['paginaAnterior']}'\">Cancelar</button>";
+                        <?php
+                        echo "<button id='btnCancelar' onclick=\"window.location.href = '../{$_SESSION['paginaAnterior']}'\">Cancelar</button>";
                         ?>
                     </div>
                     <div id="divCadastrarResiduo">
-                        <input type="submit" name="submit" id="btnCadastrar" value="Cadastrar"/>
+                        <input type="submit" name="submit" id="btnCadastrar" value="Editar" />
                     </div>
                 </div>
             </div>
@@ -102,4 +122,5 @@ $tiposResiduos = TipoResiduo::findAll();
     <footer>
     </footer>
 </body>
+
 </html>

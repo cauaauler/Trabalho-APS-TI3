@@ -44,6 +44,26 @@ class Residuo implements ActiveRecord{
     public function getAtivo(): bool {
         return $this->ativo;
     }
+
+    public function setIdTipoResiduo(int $id_tipo_residuo): void
+    {
+        $this->id_tipo_residuo = $id_tipo_residuo;
+    }
+
+    public function setImagem(string $imagem): void
+    {
+        $this->imagem = $imagem;
+    }
+
+    public function setDescricao(string $descricao): void
+    {
+        $this->descricao = $descricao;
+    }
+
+    public function setNome(string $nome): void
+    {
+        $this->nome = $nome;
+    }
     
     public function save(): bool {
         $conexao = new MySQL();

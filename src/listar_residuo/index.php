@@ -66,7 +66,6 @@ $_SESSION['paginaAnterior'] = "listar_residuo";
         echo "</main>";
     }
     ?>
-    <footer></footer>
 </body>
 
 </html>

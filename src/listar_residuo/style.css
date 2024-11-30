@@ -104,7 +104,6 @@ main{
     border: 1px solid black;
     background-color: #1c7020;
     border-radius: 2dvh 4dvh;
-    /* height: 30dvh; */
     margin: 4dvh 2dvh;
 }
 .conteudo{
@@ -143,13 +142,15 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20dvh;
+    width: 80%;
     height: 100%;
 }
 #imgResiduo{
     aspect-ratio: 1 / 1;
-    width: 18dvh;
-    height: 20dvh;
+    /* width: 18dvh; */
+    /* height: 20dvh; */
+    
+    width: 100%;
 }
 #divNomeResiduo, #divTipoResiduo{
     display: flex;

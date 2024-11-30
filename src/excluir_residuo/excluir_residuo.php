@@ -1,6 +1,9 @@
 <?php 
 include_once __DIR__ . '/../../vendor/autoload.php';
 
+include_once __DIR__ . "/../classes/Residuo.php";
+include_once __DIR__ . "/../classes/MySQL.php";
+
 if(isset($_GET['id'])) {
     $residuo = Residuo::find($_GET['id']);
 
